@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TextFieldsTraversalController_Example' do
+  pod 'TextFieldsTraversalController', :path => '../'
+
+  target 'TextFieldsTraversalController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
