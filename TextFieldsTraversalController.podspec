@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'TextFieldsTraversalController/Classes/**/*'
+  s.source_files = 'Classes/**/*'
   
   # s.resource_bundles = {
   #   'TextFieldsTraversalController' => ['TextFieldsTraversalController/Assets/*.png']
