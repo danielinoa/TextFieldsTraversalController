@@ -94,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		016772061F9356500067C3B4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				016771FB1F934F630067C3B4 /* TextFieldsTraversalAccessoryView.swift */,
+				016771FC1F934F630067C3B4 /* TextFieldsTraversalController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		08B263644E047B17297E5297B54D1799 /* Pods-TextFieldsTraversalController_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +148,7 @@
 		6352F74888E4D9EC91392FB4558B311E /* TextFieldsTraversalController */ = {
 			isa = PBXGroup;
 			children = (
-				016771FB1F934F630067C3B4 /* TextFieldsTraversalAccessoryView.swift */,
-				016771FC1F934F630067C3B4 /* TextFieldsTraversalController.swift */,
+				016772061F9356500067C3B4 /* Classes */,
 				102BFE669DED09F05192FDC559597E25 /* Support Files */,
 			);
 			name = TextFieldsTraversalController;
