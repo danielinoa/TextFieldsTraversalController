@@ -12,6 +12,13 @@ A controller to manage the traversal of a collection of textields.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Usage
+
+```swift
+let textFieldsTraversalController = TextFieldsTraversalController(textFields: textFields)
+```
+
+
 ## Requirements
 
 * iOS 9.0+ and Xcode 9.0+
