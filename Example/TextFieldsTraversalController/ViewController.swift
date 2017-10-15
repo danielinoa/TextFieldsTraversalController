@@ -1,24 +1,35 @@
 //
 //  ViewController.swift
-//  TextFieldsTraversalController
+//  TextFieldCollection
 //
-//  Created by danielinoa on 10/14/2017.
-//  Copyright (c) 2017 danielinoa. All rights reserved.
+//  Created by Daniel Inoa on 6/23/17.
+//  Copyright © 2017 Daniel Inoa. All rights reserved.
 //
 
 import UIKit
+import TextFieldsTraversalController
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    @IBOutlet var textFields: [UITextField]!
+    private var textFieldsTraversalController: TextFieldsTraversalController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        textFieldsTraversalController = TextFieldsTraversalController(textFields: textFields)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var firstTextField: UITextField!
+    @IBAction func toggleEnabled(_ sender: UIBarButtonItem) {
+        firstTextField.isEnabled = !firstTextField.isEnabled
+        sender.title = !firstTextField.isEnabled ? "Enable First" : "Disable First"
     }
-
+    
+    @IBAction func toggleOrientation(_ sender: Any) {
+        let accessoryView = textFieldsTraversalController.accessoryView
+        switch accessoryView.orientation {
+        case .horizontal: accessoryView.orientation = .vertical
+        case .vertical: accessoryView.orientation = .horizontal
+        }
+    }
 }
 

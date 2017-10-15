@@ -1,0 +1,6 @@
+framework module TextFieldsTraversalController {
+  umbrella header "TextFieldsTraversalController-umbrella.h"
+
+  export *
+  module * { export * }
+}

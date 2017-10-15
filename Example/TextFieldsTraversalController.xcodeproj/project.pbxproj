@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016772011F934FBC0067C3B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016772001F934FBC0067C3B4 /* ViewController.swift */; };
+		016772051F9352400067C3B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016772041F9352400067C3B4 /* Main.storyboard */; };
 		07CCB161BB699ADB90BE951F /* Pods_TextFieldsTraversalController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03551C83387EE1CA73BEC568 /* Pods_TextFieldsTraversalController_Example.framework */; };
 		40A7479A924548EEA6CAC1E2 /* Pods_TextFieldsTraversalController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC786EE5037881EE4DB4BB8 /* Pods_TextFieldsTraversalController_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
@@ -28,23 +28,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		016772001F934FBC0067C3B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		016772041F9352400067C3B4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		03551C83387EE1CA73BEC568 /* Pods_TextFieldsTraversalController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextFieldsTraversalController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08289ED0D131892FE11C744D /* Pods-TextFieldsTraversalController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextFieldsTraversalController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TextFieldsTraversalController_Example/Pods-TextFieldsTraversalController_Example.release.xcconfig"; sourceTree = "<group>"; };
-		0DA7D87692B60782809B8E3F /* TextFieldsTraversalController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TextFieldsTraversalController.podspec; path = ../TextFieldsTraversalController.podspec; sourceTree = "<group>"; };
+		0DA7D87692B60782809B8E3F /* TextFieldsTraversalController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TextFieldsTraversalController.podspec; path = ../TextFieldsTraversalController.podspec; sourceTree = "<group>"; };
 		113E5098EB4B28D4815B2158 /* Pods-TextFieldsTraversalController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextFieldsTraversalController_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TextFieldsTraversalController_Tests/Pods-TextFieldsTraversalController_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		20B2FB1C7EFD38D702E16454 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		20B2FB1C7EFD38D702E16454 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4C825E205F4849A37B6925D9 /* Pods-TextFieldsTraversalController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextFieldsTraversalController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextFieldsTraversalController_Tests/Pods-TextFieldsTraversalController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* TextFieldsTraversalController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextFieldsTraversalController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* TextFieldsTraversalController_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFieldsTraversalController_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		69461F11D0B73F91E52D1D07 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		69461F11D0B73F91E52D1D07 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9DE5546B33CEA295144FBB83 /* Pods-TextFieldsTraversalController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextFieldsTraversalController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextFieldsTraversalController_Example/Pods-TextFieldsTraversalController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC786EE5037881EE4DB4BB8 /* Pods_TextFieldsTraversalController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextFieldsTraversalController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,10 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				016772041F9352400067C3B4 /* Main.storyboard */,
+				016772001F934FBC0067C3B4 /* ViewController.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for TextFieldsTraversalController";
@@ -107,6 +105,8 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -215,10 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = A8SJS26GGQ;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = A8SJS26GGQ;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -248,7 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				016772051F9352400067C3B4 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -370,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				016772011F934FBC0067C3B4 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,14 +396,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -517,6 +511,7 @@
 			baseConfigurationReference = 9DE5546B33CEA295144FBB83 /* Pods-TextFieldsTraversalController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A8SJS26GGQ;
 				INFOPLIST_FILE = TextFieldsTraversalController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -532,6 +527,7 @@
 			baseConfigurationReference = 08289ED0D131892FE11C744D /* Pods-TextFieldsTraversalController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A8SJS26GGQ;
 				INFOPLIST_FILE = TextFieldsTraversalController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -546,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C825E205F4849A37B6925D9 /* Pods-TextFieldsTraversalController_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = A8SJS26GGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -567,6 +564,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 113E5098EB4B28D4815B2158 /* Pods-TextFieldsTraversalController_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = A8SJS26GGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

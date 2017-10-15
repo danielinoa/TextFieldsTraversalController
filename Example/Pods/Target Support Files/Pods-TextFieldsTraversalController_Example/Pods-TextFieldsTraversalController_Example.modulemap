@@ -1,0 +1,6 @@
+framework module Pods_TextFieldsTraversalController_Example {
+  umbrella header "Pods-TextFieldsTraversalController_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
