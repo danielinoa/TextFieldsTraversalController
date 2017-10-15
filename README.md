@@ -10,7 +10,7 @@ A controller to manage the traversal of a collection of textields.
 
 ## Example
 
-<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/TextFieldsTraversalController.gif" height="640"></a>
+<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/TextFieldsTraversalController.gif" height="640"></a>
 
 ## Usage
 
