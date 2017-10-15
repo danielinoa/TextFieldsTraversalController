@@ -10,7 +10,7 @@ A controller to manage the traversal of a collection of textields.
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/TextFieldsTraversalController.gif" height="640"></a>
 
 ## Usage
 
@@ -18,6 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 let textFieldsTraversalController = TextFieldsTraversalController(textFields: textFields)
 ```
 
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
