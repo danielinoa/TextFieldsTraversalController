@@ -10,7 +10,8 @@ This controller comes with a custom inputAccessoryView that mimics the one used 
 [![License](https://img.shields.io/cocoapods/l/TextFieldsTraversalController.svg?style=flat)](http://cocoapods.org/pods/TextFieldsTraversalController)
 [![Platform](https://img.shields.io/cocoapods/p/TextFieldsTraversalController.svg?style=flat)](http://cocoapods.org/pods/TextFieldsTraversalController)
 
-<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/TextFieldsTraversalController.gif" height="640"></a>
+<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/SS1.png" height="640"></a>
+<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/SS2.png" height="640"></a>
 
 ## Usage
 
