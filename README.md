@@ -1,7 +1,7 @@
 TextFieldsTraversalController
 ===========
 
-A controller to manage the traversal of a collection of textields. 
+A controller to manage the traversal of a collection of textfields. 
 This controller comes with a custom inputAccessoryView that mimics the one used in Safari when traversing through forms.
 
 
