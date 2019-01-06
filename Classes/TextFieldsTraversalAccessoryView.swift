@@ -97,7 +97,7 @@ open class TextFieldsTraversalAccessoryView: UIToolbar {
         case right
         case up
         case down
-        var imageOrientation: UIImageOrientation {
+        var imageOrientation: UIImage.Orientation {
             switch self {
             case .up: return .up
             case .down: return .down
