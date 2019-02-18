@@ -28,9 +28,10 @@ public class TextFieldsTraversalController {
             }
             observations.append(observation)
         }
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textFieldDidBeginEditing(_:)),
-                                               name: .UITextFieldTextDidBeginEditing,
+                                               name: UITextField.textDidBeginEditingNotification,
                                                object: nil)
         accessoryView.previousItem.addTarget(self, action: #selector(tappedPrevious))
         accessoryView.nextItem.addTarget(self, action: #selector(tappedNext))
