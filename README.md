@@ -35,6 +35,15 @@ textFieldsTraversalController.accessoryView.orientation = .vertical
 
 ![image](https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/vertical.png)
 
+The arrow buttons are disabled automatically at the first and last enabled text fields.
+
+<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/previous-disabled-full.png" height="640"></a>
+<img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/next-disabled-full.png" height="640"></a>
+
+![previous disabled](https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/previous-disabled.png)
+
+![next disabled](https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/next-disabled.png)
+
 
 ## Requirements
 
