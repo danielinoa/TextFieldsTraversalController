@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  package:
+    name: Swift Package
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: xcodebuild build -scheme TextFieldsTraversalController -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO
+
+  example:
+    name: Example App
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test
+        run: |
+          set -euo pipefail
+          simulator_id="$(
+            xcrun simctl list devices available -j |
+            ruby -rjson -e 'devices = JSON.parse(STDIN.read)["devices"].values.flatten; puts devices.find { |device| device["name"].include?("iPhone") }&.fetch("udid")'
+          )"
+
+          if [ -z "$simulator_id" ]; then
+            echo "No available iPhone simulator found."
+            exit 1
+          fi
+
+          xcodebuild test \
+            -project Example/TextFieldsTraversalController.xcodeproj \
+            -scheme TextFieldsTraversalController-Example \
+            -destination "platform=iOS Simulator,id=$simulator_id" \
+            CODE_SIGNING_ALLOWED=NO

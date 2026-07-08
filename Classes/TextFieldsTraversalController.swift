@@ -6,16 +6,17 @@
 //  Copyright © 2017 Daniel Inoa. All rights reserved.
 //
 
-import UIKit
+@preconcurrency import UIKit
 
-/// This controller manages the traversal of a collection of textields.
+/// This controller manages the traversal of a collection of text fields.
 /// - note: Managing these text fields entails: assigning them with an input accessory view
 ///         and updating their state as first responders.
-public class TextFieldsTraversalController {
+@MainActor public final class TextFieldsTraversalController {
     
     // MARK: - Observation
     
     private var observations: [NSKeyValueObservation] = []
+    private var notificationObserver: NSObjectProtocol?
     
     // MARK: - Lifecycle
     
@@ -23,23 +24,39 @@ public class TextFieldsTraversalController {
         self.textFields = textFields
         textFields.forEach {
             $0.inputAccessoryView = accessoryView
-            let observation = $0.observe(\UITextField.isEnabled) { [unowned self] _, _ in
-                self.configureAccessoryView()
+            let observation = $0.observe(\.isEnabled) { [weak self] _, _ in
+                DispatchQueue.main.async {
+                    self?.configureAccessoryView()
+                }
             }
             observations.append(observation)
         }
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(textFieldDidBeginEditing(_:)),
-                                               name: UITextField.textDidBeginEditingNotification,
-                                               object: nil)
+        notificationObserver = NotificationCenter.default.addObserver(
+            forName: UITextField.textDidBeginEditingNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] notification in
+            guard let textField = notification.object as? UITextField else {
+                return
+            }
+
+            let textFieldID = ObjectIdentifier(textField)
+            DispatchQueue.main.async {
+                self?.textFieldDidBeginEditing(matching: textFieldID)
+            }
+        }
+
         accessoryView.previousItem.addTarget(self, action: #selector(tappedPrevious))
         accessoryView.nextItem.addTarget(self, action: #selector(tappedNext))
         accessoryView.doneItem.addTarget(self, action: #selector(tappedDone))
         configureAccessoryView()
     }
     
-    deinit {
+    isolated deinit {
+        if let notificationObserver {
+            NotificationCenter.default.removeObserver(notificationObserver)
+        }
         observations.removeAll()
     }
     
@@ -54,29 +71,41 @@ public class TextFieldsTraversalController {
     private weak var currentTextField: UITextField? {
         didSet {
             currentTextField?.becomeFirstResponder()
-            currentTextField?.returnKeyType = currentTextField != enabledTextFields.last ? .next : .default
+            currentTextField?.returnKeyType = currentTextField !== enabledTextFields.last ? .next : .default
             configureAccessoryView()
         }
     }
     
     private var previousTextField: UITextField? {
-        guard let currentTextField = currentTextField,
-            let indexOfCurrentTextField = enabledTextFields.index(of: currentTextField) else { return nil }
-        let previousTextField = enabledTextFields.element(before: indexOfCurrentTextField)
-        return previousTextField
+        let textFields = enabledTextFields
+        guard let currentTextField,
+              let indexOfCurrentTextField = textFields.firstIndex(where: { $0 === currentTextField }),
+              indexOfCurrentTextField > textFields.startIndex else {
+            return nil
+        }
+
+        return textFields[textFields.index(before: indexOfCurrentTextField)]
     }
     
     private var nextTextField: UITextField? {
-        guard let currentTextField = currentTextField,
-            let indexOfCurrentTextField = enabledTextFields.index(of: currentTextField) else { return nil }
-        let nextTextField = enabledTextFields.element(after: indexOfCurrentTextField)
-        return nextTextField
+        let textFields = enabledTextFields
+        guard let currentTextField,
+              let indexOfCurrentTextField = textFields.firstIndex(where: { $0 === currentTextField }) else {
+            return nil
+        }
+
+        let nextIndex = textFields.index(after: indexOfCurrentTextField)
+        return textFields.indices.contains(nextIndex) ? textFields[nextIndex] : nil
     }
     
     // MARK: Notifications
     
-    @objc private func textFieldDidBeginEditing(_ notification: Notification) {
-        currentTextField = notification.object as? UITextField
+    private func textFieldDidBeginEditing(matching textFieldID: ObjectIdentifier) {
+        guard let textField = textFields.first(where: { ObjectIdentifier($0) == textFieldID }) else {
+            return
+        }
+
+        currentTextField = textField
     }
     
     // MARK: - Accessory View
@@ -89,8 +118,15 @@ public class TextFieldsTraversalController {
     }()
     
     private func configureAccessoryView() {
-        accessoryView.previousItem.isEnabled = enabledTextFields.first != currentTextField
-        accessoryView.nextItem.isEnabled = enabledTextFields.last != currentTextField
+        guard let currentTextField,
+              enabledTextFields.contains(where: { $0 === currentTextField }) else {
+            accessoryView.previousItem.isEnabled = false
+            accessoryView.nextItem.isEnabled = false
+            return
+        }
+
+        accessoryView.previousItem.isEnabled = enabledTextFields.first !== currentTextField
+        accessoryView.nextItem.isEnabled = enabledTextFields.last !== currentTextField
     }
     
     // MARK: Actions
@@ -106,21 +142,6 @@ public class TextFieldsTraversalController {
     @objc private func tappedDone() {
         currentTextField?.resignFirstResponder()
         currentTextField = nil
-    }
-}
-
-private extension Array {
-    
-    /// Returns the element after the specified index.
-    func element(after index: Index) -> Element? {
-        let nextIndex = index + 1
-        return nextIndex < count ? self[nextIndex] : nil
-    }
-    
-    /// Returns the element before the specified index.
-    func element(before index: Index) -> Element? {
-        let nextIndex = index - 1
-        return nextIndex >= 0 ? self[nextIndex] : nil
     }
 }
 

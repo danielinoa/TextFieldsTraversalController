@@ -1,14 +1,12 @@
 TextFieldsTraversalController
 ===========
 
-A controller to manage the traversal of a collection of textfields. 
+A controller to manage the traversal of a collection of text fields.
 This controller comes with a custom `inputAccessoryView` that mimics the one used by Safari when traversing through an HTML form.
 
 
-[![CI Status](http://img.shields.io/travis/danielinoa/TextFieldsTraversalController.svg?style=flat)](https://travis-ci.org/danielinoa/TextFieldsTraversalController)
-[![Version](https://img.shields.io/cocoapods/v/TextFieldsTraversalController.svg?style=flat)](http://cocoapods.org/pods/TextFieldsTraversalController)
-[![License](https://img.shields.io/cocoapods/l/TextFieldsTraversalController.svg?style=flat)](http://cocoapods.org/pods/TextFieldsTraversalController)
-[![Platform](https://img.shields.io/cocoapods/p/TextFieldsTraversalController.svg?style=flat)](http://cocoapods.org/pods/TextFieldsTraversalController)
+[![CI](https://github.com/danielinoa/TextFieldsTraversalController/actions/workflows/ci.yml/badge.svg)](https://github.com/danielinoa/TextFieldsTraversalController/actions/workflows/ci.yml)
+[![Swift Package Manager](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 <img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/SS1.png" height="640"></a>
 <img src="https://github.com/danielinoa/TextFieldsTraversalController/blob/master/Screenshots/SS2.png" height="640"></a>
@@ -21,7 +19,7 @@ This controller comes with a custom `inputAccessoryView` that mimics the one use
 let textFieldsTraversalController = TextFieldsTraversalController(textFields: textFields)
 ```
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo and open `Example/TextFieldsTraversalController.xcodeproj`.
 
 ## Customization
 
@@ -40,16 +38,16 @@ textFieldsTraversalController.accessoryView.orientation = .vertical
 
 ## Requirements
 
-* iOS 9.0+ and Xcode 9.0+
-* Swift 4.0+
+* iOS 12.0+
+* Swift 6.3+
+* Xcode 26.6+ or another toolchain that supports Swift 6.3
 
 ## Installation
 
-TextFieldsTraversalController is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+Add this repository as a package dependency in Xcode or in `Package.swift`:
 
 ```swift
-pod 'TextFieldsTraversalController'
+.package(url: "https://github.com/danielinoa/TextFieldsTraversalController.git", from: "2.0.0")
 ```
 
 ## Author

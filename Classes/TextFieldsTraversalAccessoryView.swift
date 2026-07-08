@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// A toolbar intended to be used as an inputAccessoryView when traversing through a collection of textfields.
+/// A toolbar intended to be used as an inputAccessoryView when traversing through a collection of text fields.
 /// This view contains 3 bar button items: a `previous`, a `next`, and a `done` bar button item.
 open class TextFieldsTraversalAccessoryView: UIToolbar {
     
@@ -16,14 +16,7 @@ open class TextFieldsTraversalAccessoryView: UIToolbar {
     
     public var orientation: Orientation = .horizontal {
         didSet {
-            switch orientation {
-            case .horizontal:
-                previousItem.image = image(forDirection: .left)
-                nextItem.image = image(forDirection: .right)
-            case .vertical:
-                previousItem.image = image(forDirection: .up)
-                nextItem.image = image(forDirection: .down)
-            }
+            applyOrientation()
         }
     }
     
@@ -34,9 +27,9 @@ open class TextFieldsTraversalAccessoryView: UIToolbar {
     
     // MARK: - Items
     
-    let previousItem = UIBarButtonItem()
-    let nextItem = UIBarButtonItem()
-    let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+    public let previousItem = UIBarButtonItem()
+    public let nextItem = UIBarButtonItem()
+    public let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
     
     // MARK: - Lifecycle
     
@@ -57,15 +50,33 @@ open class TextFieldsTraversalAccessoryView: UIToolbar {
         let fixed = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         fixed.width = 20
         setItems([previousItem, fixed, nextItem, flexible, doneItem], animated: false)
-        orientation = .horizontal
+        applyOrientation()
+    }
+
+    private func applyOrientation() {
+        switch orientation {
+        case .horizontal:
+            previousItem.image = image(forDirection: .left)
+            nextItem.image = image(forDirection: .right)
+        case .vertical:
+            previousItem.image = image(forDirection: .up)
+            nextItem.image = image(forDirection: .down)
+        }
     }
     
     // MARK: - Image
     
     private func image(forDirection direction: Direction) -> UIImage {
         let upArrowImage = imageForUpArrow()
-        let image = UIImage(cgImage: upArrowImage.cgImage!, scale: upArrowImage.scale, orientation: direction.imageOrientation)
-        return image
+        guard let cgImage = upArrowImage.cgImage else {
+            return upArrowImage
+        }
+
+        return UIImage(
+            cgImage: cgImage,
+            scale: upArrowImage.scale,
+            orientation: direction.imageOrientation
+        ).withRenderingMode(.alwaysTemplate)
     }
     
     private func imageForUpArrow() -> UIImage {
@@ -82,12 +93,11 @@ open class TextFieldsTraversalAccessoryView: UIToolbar {
         path.addLine(to: CGPoint(x: bounds.midX, y: bounds.minY))
         path.addLine(to: CGPoint(x: bounds.maxX, y: bounds.maxY))
         
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        UIColor.black.setStroke()
-        path.stroke()
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { _ in
+            UIColor.black.setStroke()
+            path.stroke()
+        }
     }
     
     // MARK: Direction

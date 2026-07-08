@@ -2,28 +2,69 @@ import UIKit
 import XCTest
 import TextFieldsTraversalController
 
-class Tests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class TextFieldsTraversalControllerTests: XCTestCase {
+
+    @MainActor
+    func testNavigationItemsReflectCurrentTextField() {
+        let firstTextField = UITextField()
+        let secondTextField = UITextField()
+        let controller = TextFieldsTraversalController(textFields: [firstTextField, secondTextField])
+
+        beginEditing(firstTextField)
+        waitForMainQueue()
+
+        XCTAssertFalse(controller.accessoryView.previousItem.isEnabled)
+        XCTAssertTrue(controller.accessoryView.nextItem.isEnabled)
+
+        beginEditing(secondTextField)
+        waitForMainQueue()
+
+        XCTAssertTrue(controller.accessoryView.previousItem.isEnabled)
+        XCTAssertFalse(controller.accessoryView.nextItem.isEnabled)
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    @MainActor
+    func testDisabledFieldsAreSkipped() {
+        let firstTextField = UITextField()
+        let secondTextField = UITextField()
+        let thirdTextField = UITextField()
+        let controller = TextFieldsTraversalController(textFields: [firstTextField, secondTextField, thirdTextField])
+
+        secondTextField.isEnabled = false
+        beginEditing(firstTextField)
+        waitForMainQueue()
+
+        XCTAssertFalse(controller.accessoryView.previousItem.isEnabled)
+        XCTAssertTrue(controller.accessoryView.nextItem.isEnabled)
+
+        beginEditing(thirdTextField)
+        waitForMainQueue()
+
+        XCTAssertTrue(controller.accessoryView.previousItem.isEnabled)
+        XCTAssertFalse(controller.accessoryView.nextItem.isEnabled)
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+
+    @MainActor
+    func testIgnoresUnmanagedTextFieldNotifications() {
+        let managedTextField = UITextField()
+        let unmanagedTextField = UITextField()
+        let controller = TextFieldsTraversalController(textFields: [managedTextField])
+
+        beginEditing(unmanagedTextField)
+        waitForMainQueue()
+
+        XCTAssertFalse(controller.accessoryView.previousItem.isEnabled)
+        XCTAssertFalse(controller.accessoryView.nextItem.isEnabled)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
+
+    private func beginEditing(_ textField: UITextField) {
+        NotificationCenter.default.post(
+            name: UITextField.textDidBeginEditingNotification,
+            object: textField
+        )
     }
-    
+
+    private func waitForMainQueue() {
+        RunLoop.main.run(until: Date(timeIntervalSinceNow: 0.01))
+    }
 }
