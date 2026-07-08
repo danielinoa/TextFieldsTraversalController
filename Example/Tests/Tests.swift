@@ -11,13 +11,11 @@ final class TextFieldsTraversalControllerTests: XCTestCase {
         let controller = TextFieldsTraversalController(textFields: [firstTextField, secondTextField])
 
         beginEditing(firstTextField)
-        waitForMainQueue()
 
         XCTAssertFalse(controller.accessoryView.previousItem.isEnabled)
         XCTAssertTrue(controller.accessoryView.nextItem.isEnabled)
 
         beginEditing(secondTextField)
-        waitForMainQueue()
 
         XCTAssertTrue(controller.accessoryView.previousItem.isEnabled)
         XCTAssertFalse(controller.accessoryView.nextItem.isEnabled)
@@ -32,13 +30,11 @@ final class TextFieldsTraversalControllerTests: XCTestCase {
 
         secondTextField.isEnabled = false
         beginEditing(firstTextField)
-        waitForMainQueue()
 
         XCTAssertFalse(controller.accessoryView.previousItem.isEnabled)
         XCTAssertTrue(controller.accessoryView.nextItem.isEnabled)
 
         beginEditing(thirdTextField)
-        waitForMainQueue()
 
         XCTAssertTrue(controller.accessoryView.previousItem.isEnabled)
         XCTAssertFalse(controller.accessoryView.nextItem.isEnabled)
@@ -51,7 +47,6 @@ final class TextFieldsTraversalControllerTests: XCTestCase {
         let controller = TextFieldsTraversalController(textFields: [managedTextField])
 
         beginEditing(unmanagedTextField)
-        waitForMainQueue()
 
         XCTAssertFalse(controller.accessoryView.previousItem.isEnabled)
         XCTAssertFalse(controller.accessoryView.nextItem.isEnabled)
@@ -62,9 +57,5 @@ final class TextFieldsTraversalControllerTests: XCTestCase {
             name: UITextField.textDidBeginEditingNotification,
             object: textField
         )
-    }
-
-    private func waitForMainQueue() {
-        RunLoop.main.run(until: Date(timeIntervalSinceNow: 0.01))
     }
 }

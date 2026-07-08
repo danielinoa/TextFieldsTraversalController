@@ -15,10 +15,6 @@
         <scene sceneID="NZ9-31-frb">
             <objects>
                 <viewController id="F9L-p7-2iP" customClass="ViewController" customModule="TextFieldCollection" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9kc-Rr-wZo"/>
-                        <viewControllerLayoutGuide type="bottom" id="7cv-3a-TQF"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1RW-EW-dqU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +51,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="DOb-19-Bgr" firstAttribute="top" secondItem="9kc-Rr-wZo" secondAttribute="bottom" constant="20" id="dgw-6A-6hl"/>
+                            <constraint firstItem="DOb-19-Bgr" firstAttribute="top" secondItem="hgC-Kj-In9" secondAttribute="top" constant="20" id="dgw-6A-6hl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DOb-19-Bgr" secondAttribute="trailing" id="kc1-vs-xDX"/>
                             <constraint firstItem="DOb-19-Bgr" firstAttribute="leading" secondItem="1RW-EW-dqU" secondAttribute="leadingMargin" id="wPS-MR-fAV"/>
                         </constraints>

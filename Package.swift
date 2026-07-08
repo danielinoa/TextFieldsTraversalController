@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "TextFieldsTraversalController",
     platforms: [
-        .iOS(.v12)
+        .iOS(.v18)
     ],
     products: [
         .library(

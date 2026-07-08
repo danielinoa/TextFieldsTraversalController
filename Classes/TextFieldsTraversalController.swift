@@ -6,7 +6,7 @@
 //  Copyright © 2017 Daniel Inoa. All rights reserved.
 //
 
-@preconcurrency import UIKit
+import UIKit
 
 /// This controller manages the traversal of a collection of text fields.
 /// - note: Managing these text fields entails: assigning them with an input accessory view
@@ -25,7 +25,7 @@
         textFields.forEach {
             $0.inputAccessoryView = accessoryView
             let observation = $0.observe(\.isEnabled) { [weak self] _, _ in
-                DispatchQueue.main.async {
+                MainActor.assumeIsolated {
                     self?.configureAccessoryView()
                 }
             }
@@ -41,9 +41,8 @@
                 return
             }
 
-            let textFieldID = ObjectIdentifier(textField)
-            DispatchQueue.main.async {
-                self?.textFieldDidBeginEditing(matching: textFieldID)
+            MainActor.assumeIsolated {
+                self?.textFieldDidBeginEditing(textField)
             }
         }
 
@@ -100,8 +99,8 @@
     
     // MARK: Notifications
     
-    private func textFieldDidBeginEditing(matching textFieldID: ObjectIdentifier) {
-        guard let textField = textFields.first(where: { ObjectIdentifier($0) == textFieldID }) else {
+    private func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard textFields.contains(where: { $0 === textField }) else {
             return
         }
 

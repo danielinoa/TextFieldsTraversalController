@@ -38,7 +38,7 @@ textFieldsTraversalController.accessoryView.orientation = .vertical
 
 ## Requirements
 
-* iOS 12.0+
+* iOS 18.0+
 * Swift 6.3+
 * Xcode 26.6+ or another toolchain that supports Swift 6.3
 
